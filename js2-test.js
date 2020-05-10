@@ -1,5 +1,5 @@
-// Name:
-// Class:
+// Name:omer degrmenci
+// Class:27
 
 // JavaScript1
 
@@ -13,6 +13,23 @@
     Expected output:
     'Noer is 28 and works as an Education Director'
 */
+const noer = {
+    name: 'Noer',
+    age: 28,
+    job: 'Education Director'
+}
+
+function logObj(obj) {
+for(let item in obj) {
+    let name = obj.name;
+    let age = obj.age;
+    let job = obj.job;
+    console.log(`${name} is ${age} and works as an ${job}.`);
+}
+return obj;
+}
+
+logObj(noer);
 
 /* 2. Create a function, named logNumbers, that:
       - Takes 2 arguments: a start number and an end number
@@ -38,6 +55,18 @@
 
       Use the following values: 1 (start number) and 100 (end number)
 */
+function logNumbers(start, end) {
+    for(let i = start; i <= end; i++) {
+        if(i % 3 === 0){
+            console.log('Fizz');
+        }else if(i % 5 === 0) {
+            console.log('Buzz');
+        }else if(i % 5 === 0  && i % 3 === 0){
+        console.log('FizzBuzz');
+        }else {console.log(i);}
+    }
+}
+logNumbers(1,100);
 
 // JavaScript2
 
@@ -54,6 +83,13 @@
 
       Use the following array: const letters = ['a', 'b', 'c', 'd'];
 */
+const letters = ['a', 'b', 'c', 'd'];
+function toNumbers(arr) {
+    const newArr = letters.map(x => x.indexOf)
+    return newArr;
+}
+console.log(toNumbers(letters));
+
 
 /* 4. Create a function, called injectBooksToDOM, that:
       - Takes 1 argument: an array of objects
@@ -80,6 +116,29 @@
       ];
 */
 
+function injectBooksToDOM(arrObj) {
+    const root = document.getElementById('root');
+    let ul = document.createElement('ul')
+    root.appendChild(ul);
+    ul = arrObj.forEach(element => {
+        
+    });
+}
+
+const books = [
+    {
+          bookName: "The Nature of Software Development",
+          author: "Ron Jeffries",
+          coverURL:
+                "https://cdn-images-1.medium.com/max/1200/1*CQRh-pFTZ97ReXogbefleQ.png"
+    },
+    {
+          bookName: "Clean Code",
+          author: "Robert Cecil Martin",
+          coverURL:
+                "https://images-na.ssl-images-amazon.com/images/I/515iEcDr1GL._SX258_BO1,204,203,200_.jpg"
+    }
+];
 /*
 5. What's the output for this snippet? Is the output deterministic (always the same) or might it depend on the browser
 we run this in? 
@@ -102,5 +161,5 @@ function test() {
     }, 0);
     console.log('six');
 }
-test(); // ?
+test(); //  ?
 */
