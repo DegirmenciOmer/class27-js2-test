@@ -20,12 +20,10 @@ const noer = {
 }
 
 function logObj(obj) {
-for(let item in obj) {
     let name = obj.name;
     let age = obj.age;
     let job = obj.job;
     console.log(`${name} is ${age} and works as an ${job}.`);
-}
 return obj;
 }
 
@@ -57,12 +55,12 @@ logObj(noer);
 */
 function logNumbers(start, end) {
     for(let i = start; i <= end; i++) {
-        if(i % 3 === 0){
-            console.log('Fizz');
+        if(i % 5 === 0  && i % 3 === 0){
+            console.log('FizzBuzz');
         }else if(i % 5 === 0) {
             console.log('Buzz');
-        }else if(i % 5 === 0  && i % 3 === 0){
-        console.log('FizzBuzz');
+        }else if(i % 3 === 0){
+        console.log('Fizz');
         }else {console.log(i);}
     }
 }
@@ -85,7 +83,7 @@ logNumbers(1,100);
 */
 const letters = ['a', 'b', 'c', 'd'];
 function toNumbers(arr) {
-    const newArr = letters.map(x => x.indexOf)
+    const newArr = letters.map(letter => letters.indexOf(letter));
     return newArr;
 }
 console.log(toNumbers(letters));
@@ -121,7 +119,12 @@ function injectBooksToDOM(arrObj) {
     let ul = document.createElement('ul')
     root.appendChild(ul);
     ul = arrObj.forEach(element => {
-        
+        let li = document.createElement('li');
+        li.innerHTML = `
+        <p>${element.bookName} - ${element.author}</p>
+        <img src="${element.coverURL}">
+    `;
+    ul.append(li);
     });
 }
 
@@ -139,6 +142,9 @@ const books = [
                 "https://images-na.ssl-images-amazon.com/images/I/515iEcDr1GL._SX258_BO1,204,203,200_.jpg"
     }
 ];
+
+injectBooksToDOM(books);
+
 /*
 5. What's the output for this snippet? Is the output deterministic (always the same) or might it depend on the browser
 we run this in? 
@@ -161,5 +167,5 @@ function test() {
     }, 0);
     console.log('six');
 }
-test(); //  ?
+test(); // ?
 */
